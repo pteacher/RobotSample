@@ -32,8 +32,10 @@ public class Robot {
             case 'W': y--; break;
             case 'S': y++; break;
             case 'D': x++; break;
+            case 'M': Field.print(); break;
             default: move();
         }
+
     }
 
     public void move() {

@@ -5,6 +5,7 @@ public class Main {
     static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
         Robot robot = new Robot();
+        Field.putRandomElements(5);
         char command;
         do {
             command = in.next().toUpperCase().charAt(0);
