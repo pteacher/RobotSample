@@ -8,7 +8,7 @@ public class Robot {
     private int y;
     private int health = 100;
     private final int CAPACITY = 5;
-    private int loadUnits;
+    private int loadUnits; // 0
     private String name;
 
     public Robot() {
@@ -33,9 +33,13 @@ public class Robot {
             case 'S': y++; break;
             case 'D': x++; break;
             case 'M': Field.print(); break;
+            case 'F': Field.putElement(y, x, 2); break;
             default: move();
         }
-
+        if (loadUnits < CAPACITY && Field.elements[y][x] == 1) {
+            loadUnits++;
+            Field.putElement(y, x, 0);
+        }
     }
 
     public void move() {
