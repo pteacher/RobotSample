@@ -32,7 +32,7 @@ public class Robot {
             case 'W': y--; break;
             case 'S': y++; break;
             case 'D': x++; break;
-            case 'M': Field.print(); break;
+            case 'M': Field.print(this); break;
             case 'F': Field.putElement(y, x, 2); break;
             default: move();
         }
@@ -49,5 +49,13 @@ public class Robot {
 
     public void whereAmI() {
         System.out.println(x + " " + y);
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }

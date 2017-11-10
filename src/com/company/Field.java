@@ -15,10 +15,14 @@ public class Field {
     public static void putElement(int x, int y, int type) {
         elements[x][y] = type;
     }
-    public static void print() {
-        for (int[] row : elements) {
-            for (int el: row) {
-                System.out.printf("%2d", el);
+    public static void print(Robot r) {
+        for (int y = 0; y < size; y++) {
+            for (int x = 0; x < size; x++) {
+                if (r.getX() == x && r.getY() == y) {
+                    System.out.printf("%2s", "R");
+                }
+                else
+                    System.out.printf("%2d", elements[y][x]);
             }
             System.out.println();
         }
