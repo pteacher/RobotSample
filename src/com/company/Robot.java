@@ -4,14 +4,18 @@ package com.company;
  * Created by TEACHER on 08.11.2017.
  */
 public class Robot {
-    private int x;
-    private int y;
-    private int health = 100;
-    private final int CAPACITY = 5;
-    private int loadUnits; // 0
-    private String name;
+    protected int x;
+    protected int y;
+    protected int health = 100;
+    protected final int CAPACITY = 5;
+    protected int loadUnits; // 0
+    protected String name;
 
     public Robot() {
+
+    }
+
+    public Robot(boolean b) {
         x = (int)(Math.random() * Field.size);
         y = (int)(Math.random() * Field.size);
         name = "Wall-" + (int)(Math.random() * 10000);
@@ -33,7 +37,13 @@ public class Robot {
             case 'S': y++; break;
             case 'D': x++; break;
             case 'M': Field.print(this); break;
-            case 'F': Field.putElement(y, x, 2); break;
+            case 'F':
+                if (Field.elements[y][x] == 0) {
+                    Field.putElement(y, x, 2);
+                } else {
+                    System.err.println("I CANT DRILL HERE");
+                }
+                break;
             default: move();
         }
         if (loadUnits < CAPACITY && Field.elements[y][x] == 1) {
